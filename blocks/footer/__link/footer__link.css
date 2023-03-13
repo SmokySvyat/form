@@ -1,0 +1,19 @@
+.footer__link {
+    text-decoration: none;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.2);
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 500;
+    margin: 5px 0;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    transition: all 0.2s ease;
+}
+
+.footer__link:hover {
+    opacity: 0.8;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}

@@ -13,5 +13,6 @@
 @import url(../blocks/form/__submit/form__submit.css);
 @import url(../blocks/form/__submit/_inactive/form__submit_inactive.css);
 
+@import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__author/footer__author.css);
 @import url(../blocks/footer/__link/footer__link.css);
