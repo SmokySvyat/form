@@ -33,12 +33,12 @@
         </div>
         <div class="form__section">
             <label class="form__label" for="password">Пароль</label>
-            <input class="form__input" name="password" type="password" minlength="8" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$" required>
+            <input class="form__input" name="password" type="password" minlength="8" maxlength="50" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$" required>
             <span class="form__input-error"></span>
         </div>
         <div class="form__section">
             <label class="form__label" for="password-repeat">Повторите пароль</label>
-            <input class="form__input" name="password-repeat" type="password" required>
+            <input class="form__input" name="password-repeat" type="password" minlength="8" maxlength="50" required>
             <span class="form__input-error"></span>
         </div>
         <div class="form__section">
