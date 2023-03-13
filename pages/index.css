@@ -1,1 +1,17 @@
-@import url(../blocks/);
+@import url(../vendor/normalize.css);
+@import url(../vendor/fonts/fonts.css);
+@import url(../blocks/root/root.css);
+
+@import url(../blocks/form/form.css);
+@import url(../blocks/form/__heading/form__heading.css);
+@import url(../blocks/form/__section/form__section.css);
+
+@import url(../blocks/form/__label/form__label.css);
+@import url(../blocks/form/__input/form__input.css);
+@import url(../blocks/form/__input-error/form__input-error.css);
+@import url(../blocks/form/__input-error/_active/form__input-error_active.css);
+@import url(../blocks/form/__submit/form__submit.css);
+@import url(../blocks/form/__submit/_inactive/form__submit_inactive.css);
+
+@import url(../blocks/footer/__author/footer__author.css);
+@import url(../blocks/footer/__link/footer__link.css);
