@@ -14,12 +14,12 @@
 </head>
 
 <body class="root">
-    <form class="form">
+    <form class="form" novalidate>
         <h1 class="form__heading">Регистрация</h1>
         <div class="form__section">
             <label class="form__label" for="first-name">Имя</label>
             <input class="form__input" name="first-name" type="text" minlength="2" maxlength="50" required>
-            <span class="form__input-error form__input-error_active">dfgjdghjdhgj</span>
+            <span class="form__input-error form__input-error_active"></span>
         </div>
         <div class="form__section">
             <label class="form__label" for="second-name">Фамилия</label>
@@ -33,12 +33,12 @@
         </div>
         <div class="form__section">
             <label class="form__label" for="password">Пароль</label>
-            <input class="form__input" name="password" type="password" minlength="8" maxlength="50" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$" required>
-            <span class="form__input-error"></span>
+            <input class="form__input" id="password" name="password" type="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$" required>
+            <span class="form__input-error">Пароль должен содержать минимум 8 символов, одну цифру, одну заглавную и строчную букву</span>
         </div>
         <div class="form__section">
             <label class="form__label" for="password-repeat">Повторите пароль</label>
-            <input class="form__input" name="password-repeat" type="password" minlength="8" maxlength="50" required>
+            <input class="form__input" id="password-repeat" name="password-repeat" type="password" minlength="8" maxlength="50" required>
             <span class="form__input-error"></span>
         </div>
         <div class="form__section">
