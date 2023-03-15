@@ -14,6 +14,12 @@
 @import url(../blocks/form/__submit/form__submit.css);
 @import url(../blocks/form/__submit/_inactive/form__submit_inactive.css);
 
+@import url(../blocks/tip/tip.css);
+@import url(../blocks/tip/__age/tip__age.css);
+@import url(../blocks/tip/_active/tip_active.css);
+@import url(../blocks/tip/__heading/tip__heading.css);
+@import url(../blocks/tip/__item/tip__item.css);
+
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__author/footer__author.css);
 @import url(../blocks/footer/__link/footer__link.css);

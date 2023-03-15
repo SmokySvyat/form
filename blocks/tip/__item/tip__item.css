@@ -1,0 +1,10 @@
+.tip__item {
+    font-size: 13px;
+    line-height: 15px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.tip__item:last-child {
+    margin: 0;
+}

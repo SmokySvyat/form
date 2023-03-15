@@ -1,13 +1,39 @@
-function showError (errorElement, inputElement, options) {
-    errorElement.textContent = inputElement.validationMessage;
+function addClassError (errorElement, inputElement, options) {
     errorElement.classList.add(options.errorClass);
     inputElement.classList.add(options.inputErrorClass);
-  };
-  
-function hideError (errorElement, inputElement, options) {
-    errorElement.textContent = '';
+};
+
+function removeClassError (errorElement, inputElement, options) {
     errorElement.classList.remove(options.errorClass);
     inputElement.classList.remove(options.inputErrorClass);
+};
+
+function showError (errorElement, inputElement, options) {
+    addClassError (errorElement, inputElement, options);
+    errorElement.textContent = inputElement.validationMessage;
+};
+  
+function hideError (errorElement, inputElement, options) {
+    removeClassError (errorElement, inputElement, options);
+    errorElement.textContent = '';
+};
+
+function showErrorPass(options) {    
+  passInputs.forEach(input => {
+      const inputParent = input.closest(options.errorClosestParent);
+      const errorElement = inputParent.querySelector(options.errorText);
+      addClassError (errorElement, passInput, options)
+      errorElement.textContent = 'Пароли не совпадают';
+  });
+};
+
+function hideErrorPass(options) {
+  passInputs.forEach(passInput => {
+      const inputParent = passInput.closest(options.errorClosestParent);
+      const errorElement = inputParent.querySelector(options.errorText);
+      removeClassError (errorElement, passInput, options)
+      errorElement.textContent = 'Пароли не совпадают';
+  });
 };
 
 function setButtonActive (submitElement, inactiveButtonClass) {
@@ -20,23 +46,35 @@ function setButtonInactive (submitElement, inactiveButtonClass) {
     submitElement.classList.add(inactiveButtonClass);
 };
 
-function comparisonPassword (password, passwordRepeat) {
-    const passworD = document.querySelector(password).value;
-    const passwordRepeaT = document.querySelector(passwordRepeat).value
-    console.log(passworD)
-    if (passworD === passwordRepeaT) {
-        console.log('ok');
-    } else {
-        console.log('wrong')
-    }
-}
+function isPasswordsEqual (options) {
+  const pass = document.querySelector(options.passwordSelector);
+  const passRep = document.querySelector(options.passwordRepeatSelector);
+
+
+  if (pass.value === passRep.value) {
+      isEqual = true;
+  } else {
+      isEqual = false;
+  }
+  
+  return isEqual;
+};
+
+function setPasswordState (isEqual, options) {
+    
+  if (!isEqual) {
+      showErrorPass(options)
+  } else {
+      hideErrorPass(options)
+  }
+};
 
 function setInputState (inputElement, isValid, options) {
-    const inputSectionElement = inputElement.closest(options.errorClosestParent)
-    const errorElement = inputSectionElement.querySelector(options.errorText)
+  const inputSectionElement = inputElement.closest(options.errorClosestParent)
+  const errorElement = inputSectionElement.querySelector(options.errorText)
+
     if (isValid) {
-      hideError (errorElement, inputElement, options)
-      comparisonPassword(options.password, options.passwordRepeat)
+      hideError (errorElement, inputElement, options);
     } else {
       showError (errorElement, inputElement, options);
     };
@@ -44,12 +82,15 @@ function setInputState (inputElement, isValid, options) {
 
 const toggleInputState = (inputElement, options) => {
     const isValid = inputElement.validity.valid;
-    setInputState(inputElement, isValid, options)
+    isPasswordsEqual(options);
+    setPasswordState(isEqual, options)
+    setInputState(inputElement, isValid, options);
 };
 
 const setEventListeners = (form, options) => {
     const submitElement = form.querySelector(options.submitButtonSelector);
     const inputs = Array.from(form.querySelectorAll(options.inputSelector));
+    const tip = document.querySelector(options.tipSelector);
   
     inputs.forEach(inputElement => {
       inputElement.addEventListener('change', () => {
@@ -62,7 +103,7 @@ const setEventListeners = (form, options) => {
       return inputElement.validity.valid;
     });
 
-    if (isFormValid) {
+    if (isFormValid && isEqual) {
       setButtonActive (submitElement, inactiveButtonClass);
     } else {
       setButtonInactive (submitElement, inactiveButtonClass);
@@ -81,21 +122,20 @@ const enableValidation = ({
     errorClass,
     errorText,
     errorClosestParent,
-    password,
-    passwordRepeat
+    passwordSelector,
+    passwordRepeatSelector,
   }) => {
-    const forms = Array.from(document.querySelectorAll(formSelector));
-    forms.forEach(form => {
-      setEventListeners(form, {
-        inputSelector,
-        submitButtonSelector,
-        inactiveButtonClass,
-        inputErrorClass,
-        errorClass,
-        errorText,
-        errorClosestParent,
-        password,
-        passwordRepeat
-      });
+    const form = document.querySelector(formSelector);
+
+    setEventListeners(form, {
+      inputSelector,
+      submitButtonSelector,
+      inactiveButtonClass,
+      inputErrorClass,
+      errorClass,
+      errorText,
+      errorClosestParent,
+      passwordSelector,
+      passwordRepeatSelector,
     });
   };

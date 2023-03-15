@@ -14,5 +14,5 @@
         -ms-flex-align: center;
             align-items: center;
     -ms-flex-pack: distribute;
-        justify-content: space-around;
+        justify-content: center;
 }
