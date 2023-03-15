@@ -11,7 +11,7 @@ const validationOptions = {
     passwordRepeatSelector: '#password-repeat',
     bDateSelector: '#b-date',
     tipSelector: '.tip',
-    tipAgeSelector: '.tip__age',
+    tipAgeSelector: '.age',
     tipActiveClass: 'tip_active'
   };
 

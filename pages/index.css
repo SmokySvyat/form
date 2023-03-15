@@ -15,7 +15,7 @@
 @import url(../blocks/form/__submit/_inactive/form__submit_inactive.css);
 
 @import url(../blocks/tip/tip.css);
-@import url(../blocks/tip/__age/tip__age.css);
+@import url(../blocks/age/age.css);
 @import url(../blocks/tip/_active/tip_active.css);
 @import url(../blocks/tip/__heading/tip__heading.css);
 @import url(../blocks/tip/__item/tip__item.css);
