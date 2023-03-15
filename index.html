@@ -18,12 +18,12 @@
         <h1 class="form__heading">Регистрация</h1>
         <div class="form__section">
             <label class="form__label" for="first-name">Имя</label>
-            <input class="form__input" name="first-name" type="text" minlength="2" maxlength="50" required>
+            <input class="form__input" name="first-name" type="text" minlength="2" maxlength="50" pattern="^[a-zA-ZА-Яа-яЁёs]+$" required>
             <span class="form__input-error"></span>
         </div>
         <div class="form__section">
             <label class="form__label" for="second-name">Фамилия</label>
-            <input class="form__input" name="second-name" type="text" minlength="2" maxlength="50" required>
+            <input class="form__input" name="second-name" type="text" minlength="2" maxlength="50" pattern="^[a-zA-ZА-Яа-яЁёs]+$" required>
             <span class="form__input-error"></span>
         </div>
         <div class="form__section">
