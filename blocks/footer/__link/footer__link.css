@@ -9,11 +9,15 @@
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 5px;
+    -webkit-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
     transition: all 0.2s ease;
 }
 
 .footer__link:hover {
     opacity: 0.8;
     cursor: pointer;
+    -webkit-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
     transition: all 0.2s ease;
 }

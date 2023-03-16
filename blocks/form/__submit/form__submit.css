@@ -9,6 +9,8 @@
     font-size: 18px;
     line-height: 20px;
     font-weight: 500;
+    -webkit-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
     transition: all 0.2s ease;
     cursor: pointer;
     border: none;
@@ -16,5 +18,7 @@
 
 .form__submit:not([disabled]):hover {
     opacity: 0.8;
+    -webkit-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
     transition: all 0.2s ease;
 }
