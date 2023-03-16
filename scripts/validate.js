@@ -1,3 +1,4 @@
+// Открытие/закрытие ошибок
 function addClassError (errorElement, inputElement, options) {
     errorElement.classList.add(options.errorClass);
     inputElement.classList.add(options.inputErrorClass);
@@ -36,6 +37,7 @@ function hideErrorPass(options) {
   });
 };
 
+// Состояние submit'a активное/неактивное
 function setButtonActive (submitElement, inactiveButtonClass) {
     submitElement.removeAttribute('disabled');
     submitElement.classList.remove(inactiveButtonClass);
@@ -46,6 +48,10 @@ function setButtonInactive (submitElement, inactiveButtonClass) {
     submitElement.classList.add(inactiveButtonClass);
 };
 
+//Возрастное ограничение
+bDateInput.setAttribute('max', max)
+
+// Сравнение паролей
 function isPasswordsEqual (options) {
   const pass = document.querySelector(options.passwordSelector);
   const passRep = document.querySelector(options.passwordRepeatSelector);
@@ -69,6 +75,7 @@ function setPasswordState (isEqual, options) {
   }
 };
 
+// Проверка на валидность
 function setInputState (inputElement, isValid, options) {
   const inputSectionElement = inputElement.closest(options.errorClosestParent)
   const errorElement = inputSectionElement.querySelector(options.errorText)
@@ -87,10 +94,24 @@ const toggleInputState = (inputElement, options) => {
     setInputState(inputElement, isValid, options);
 };
 
+// Обработчик событий
 const setEventListeners = (form, options) => {
     const submitElement = form.querySelector(options.submitButtonSelector);
     const inputs = Array.from(form.querySelectorAll(options.inputSelector));
-    const tip = document.querySelector(options.tipSelector);
+
+    bDateInput.onfocus = () => {
+      tipAge.classList.add(validationOptions.tipActiveClass);
+    };    
+    bDateInput.onblur = () => {
+      tipAge.classList.remove(validationOptions.tipActiveClass);
+    };
+    
+    passInput.onfocus = () => {
+      tip.classList.add(validationOptions.tipActiveClass);
+    };    
+    passInput.onblur = () => {
+        tip.classList.remove(validationOptions.tipActiveClass);
+    };
   
     inputs.forEach(inputElement => {
       inputElement.addEventListener('change', () => {
@@ -112,6 +133,7 @@ const setEventListeners = (form, options) => {
 
   toggleBtnState(inputs, submitElement)
 };
+
 
 const enableValidation = ({
     formSelector,

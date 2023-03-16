@@ -18,45 +18,55 @@
         <h1 class="form__heading">Регистрация</h1>
         <div class="form__section">
             <label class="form__label" for="first-name">Имя</label>
-            <input class="form__input" name="first-name" type="text" minlength="2" maxlength="50" pattern="^[a-zA-ZА-Яа-яЁёs]+$" required>
+            <input class="form__input" id="first-name" type="text" minlength="2" maxlength="50" pattern="^[a-zA-ZА-Яа-яЁёs]+$" required>
             <span class="form__input-error"></span>
         </div>
+
         <div class="form__section">
             <label class="form__label" for="second-name">Фамилия</label>
-            <input class="form__input" name="second-name" type="text" minlength="2" maxlength="50" pattern="^[a-zA-ZА-Яа-яЁёs]+$" required>
+            <input class="form__input" id="second-name" type="text" minlength="2" maxlength="50" pattern="^[a-zA-ZА-Яа-яЁёs]+$" required>
             <span class="form__input-error"></span>
         </div>
+
         <div class="form__section">
             <label class="form__label" for="email">E-mail</label>
-            <input class="form__input" name="email" type="email" required>
+            <input class="form__input" id="email" type="email" 
+                    
+            required>
             <span class="form__input-error"></span>
         </div>
+
         <div class="form__section">
             <label class="form__label" for="password">Пароль</label>
             <input class="form__input" id="password" name="password" type="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$"
                 title="Пароль должен содержать минимум 8 символов, одну цифру, одну заглавную и строчную букву" required>
             <span class="form__input-error"></span>
         </div>
+
         <div class="form__section">
             <label class="form__label" for="password-repeat">Повторите пароль</label>
             <input class="form__input" id="password-repeat" name="password-repeat" type="password" minlength="8" maxlength="50" required>
             <span class="form__input-error"></span>
         </div>
+
         <div class="form__section">
             <label class="form__label" for="b-date">Дата рождения</label>
             <input class="form__input" id="b-date" name="b-date" type="date" required>
             <span class="form__input-error"></span>
         </div>
         
-        <ul class="tip">
+        <div class="tip">
             <h2 class="tip__heading">Пароль должен содержать:</h2>
-            <li class="tip__item ">Минимум 8 символов</li>
-            <li class="tip__item">Минимум одну цифру</li>
-            <li class="tip__item">Минимум одну заглавную и строчную букву</li>
-        </ul>
-        <ul class="tip age">
+            <ul>
+                <li class="tip__item ">Минимум 8 символов</li>
+                <li class="tip__item">Минимум одну цифру</li>
+                <li class="tip__item">Минимум одну заглавную и строчную букву</li>
+            </ul>
+        </div>
+        
+        <div class="tip age">
             <h2 class="tip__heading">Вам должно исполниться 18 лет</h2>
-        </ul>
+        </div>
 
         <button class="form__submit form__submit_inactive" type="submit" disabled>Отправить</button>
     </form>
